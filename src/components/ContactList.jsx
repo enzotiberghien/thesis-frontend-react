@@ -4,14 +4,14 @@ import ContactItem from './ContactItem';
 
 const ContactList = () => {
   const { contacts } = useContext(ContactContext);
-  const [visibleCount, setVisibleCount] = useState(20);
+  const [visibleCount, setVisibleCount] = useState(10);
   const observer = useRef();
 
   const lastContactElementRef = useCallback(node => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && contacts.length > visibleCount) {
-        setVisibleCount(prevVisibleCount => prevVisibleCount + 20);
+        setVisibleCount(prevVisibleCount => prevVisibleCount + 10);
       }
     });
     if (node) observer.current.observe(node);

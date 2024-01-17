@@ -6,7 +6,6 @@ const ContactItem = forwardRef(({ contact }, ref) => {
 
   const handleEdit = () => {
     setCurrentContact(contact);
-    window.scrollTo(0, 0); 
   };
 
   const handleDelete = () => {
@@ -18,16 +17,18 @@ const ContactItem = forwardRef(({ contact }, ref) => {
 
   return (
     <div ref={ref} className="contact-item">
-      <div className="contact-name">{contact.firstName} {contact.lastName}</div>
-      <div className="contact-detail">Email: {contact.email}</div>
-      <div className="contact-detail">Phone: {contact.phoneNumber}</div>
-      {contact.address && (
-        <div className="contact-address">
-          <div>Address: {contact.address.street}, {contact.address.city}</div>
-          <div>{contact.address.state}, {contact.address.zipCode}</div>
-          <div>{contact.address.country}</div>
-        </div>
-      )}
+      <div className="contact-details">
+        <div className="contact-name">{contact.firstName} {contact.lastName}</div>
+        <div className="contact-detail">Email: {contact.email}</div>
+        <div className="contact-detail">Phone: {contact.phoneNumber}</div>
+        {contact.address && (
+          <div className="contact-address">
+            <div>Address: {contact.address.street}, {contact.address.city}</div>
+            <div>{contact.address.state}, {contact.address.zipCode}</div>
+            <div>{contact.address.country}</div>
+          </div>
+        )}
+      </div>
       <button onClick={handleEdit}>Edit</button>
       <button onClick={handleDelete}>Delete</button>
     </div>
