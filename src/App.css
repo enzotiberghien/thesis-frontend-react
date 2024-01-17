@@ -20,6 +20,11 @@ header h1 {
 }
 
 
+.main-container {
+  margin: 1em;
+}
+
+
 form {
   background-color: #fff;
   padding: 20px;
@@ -81,10 +86,10 @@ button:hover {
   background-color: #0056b3;
 }
 
-.contact-list {
+/* .contact-list {
   max-height: 400px;
   overflow-y: auto;
-}
+} */
 
 .contact-item {
   background-color: #fff;

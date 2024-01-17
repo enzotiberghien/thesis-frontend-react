@@ -46,22 +46,21 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
-        <div className="form-column">
+        <fieldset className="form-column">
+          <legend>Contact Details</legend>
           <input type="text" name="firstName" value={contact.firstName} onChange={handleChange} placeholder="First Name" required />
           <input type="text" name="lastName" value={contact.lastName} onChange={handleChange} placeholder="Last Name" required />
           <input type="email" name="email" value={contact.email} onChange={handleChange} placeholder="Email" required />
           <input type="tel" name="phoneNumber" value={contact.phoneNumber} onChange={handleChange} placeholder="Phone Number" required />
-        </div>
-        <div className="form-column">
-          <fieldset>
-            <legend>Address</legend>
-            <input type="text" name="address.street" value={contact.address.street} onChange={handleChange} placeholder="Street" />
-            <input type="text" name="address.city" value={contact.address.city} onChange={handleChange} placeholder="City" />
-            <input type="text" name="address.state" value={contact.address.state} onChange={handleChange} placeholder="State" />
-            <input type="text" name="address.zipCode" value={contact.address.zipCode} onChange={handleChange} placeholder="Zip Code" />
-            <input type="text" name="address.country" value={contact.address.country} onChange={handleChange} placeholder="Country" />
-          </fieldset>
-        </div>
+        </fieldset>
+        <fieldset className="form-column">
+          <legend>Address</legend>
+          <input type="text" name="address.street" value={contact.address.street} onChange={handleChange} placeholder="Street" />
+          <input type="text" name="address.city" value={contact.address.city} onChange={handleChange} placeholder="City" />
+          <input type="text" name="address.state" value={contact.address.state} onChange={handleChange} placeholder="State" />
+          <input type="text" name="address.zipCode" value={contact.address.zipCode} onChange={handleChange} placeholder="Zip Code" />
+          <input type="text" name="address.country" value={contact.address.country} onChange={handleChange} placeholder="Country" />
+        </fieldset>
       </div>
       <button type="submit">Submit</button>
       {currentContact && <button onClick={handleCancel}>Cancel</button>}

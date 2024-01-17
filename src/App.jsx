@@ -11,8 +11,10 @@ function App() {
       <ContactProvider>
         <div>
           <Header></Header>
-          <ContactForm />
-          <ContactList />
+          <div className="main-container">
+            <ContactForm />
+            <ContactList />
+          </div>
         </div>
       </ContactProvider>
     </>

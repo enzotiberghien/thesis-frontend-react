@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, forwardRef } from 'react';
 import { ContactContext } from '../context/GlobalState';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = forwardRef(({ contact }, ref) => {
   const { setCurrentContact, deleteContact } = useContext(ContactContext);
 
   const handleEdit = () => {
     setCurrentContact(contact);
+    window.scrollTo(0, 0); 
   };
 
   const handleDelete = () => {
@@ -13,10 +14,10 @@ const ContactItem = ({ contact }) => {
       deleteContact(contact._id);
       setCurrentContact(null);
     }
-  }
+  };
 
   return (
-    <div className="contact-item">
+    <div ref={ref} className="contact-item">
       <div className="contact-name">{contact.firstName} {contact.lastName}</div>
       <div className="contact-detail">Email: {contact.email}</div>
       <div className="contact-detail">Phone: {contact.phoneNumber}</div>
@@ -31,6 +32,6 @@ const ContactItem = ({ contact }) => {
       <button onClick={handleDelete}>Delete</button>
     </div>
   );
-};
+});
 
 export default ContactItem;
