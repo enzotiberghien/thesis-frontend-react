@@ -6,6 +6,7 @@ const ContactItem = forwardRef(({ contact }, ref) => {
 
   const handleEdit = () => {
     setCurrentContact(contact);
+    window.scrollTo(0,0)
   };
 
   const handleDelete = () => {
